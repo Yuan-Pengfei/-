@@ -1,0 +1,26 @@
+public static void AdjustHeap(int[] a,int i,int len){
+    int temp=a[i];
+    for(int j=2*i+1;j<=len;j=2*j+1){
+        if(j<len&&a[j+1]>a[j]){
+            j++;
+        }
+        if(temp>a[j]){
+            break;
+        }
+        a[i]=a[j];
+        i=j;
+    }
+    a[i]=temp;
+}
+public static void HeapSort(int[] a){
+    int i;
+    for(i=a.length/2-1;i>=0;i--){
+        AdjustHeap(a,i,a.length-1);
+    }
+    for(i=a.length-1;i>0;i--){
+        int temp=a[0];
+        a[0]=a[i];
+        a[i]=temp;
+        AdjustHeap(a,0,i-1);
+    }
+}
