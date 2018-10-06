@@ -1,13 +1,1 @@
-#public static void BubbleSort(int[] a){
-#   int i,j;
-#    int n=a.length;
-#    for(i=0;i<n;i++){
-#        for(j=1;j<n-i;j++){
-#            if(a[j]<a[j-1]){
-#                int temp=a[j];
-#                a[j]=a[j-1];
-#                a[j-1]=temp;
-#            }
-#        }
-#    }
-#}
+冒泡排序进行n次循环，每次循环比较相邻的两个数，如果前者比后者大就交换，因此一次循环之后最大的数就到了数组最后。因而之后的循环执行n-i次比较即可。
