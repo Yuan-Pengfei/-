@@ -1,15 +1,15 @@
-public static void DirectSelectSort(int[] a){
+public static void DirectInsertSort(int[] a){
     int i,j;
-    for(i=0;i<a.length;i++){
-        int min=a[i];
-        int n=i;
-        for(j=i+1;j<a.length;j++){
-            if(a[j]<min){
-                min=a[j];
-                n=j;
+    for(i=1;i<a.length;i++){
+        int temp=a[i];
+        for(j=i-1;j>=0;j--){
+            if(a[j]>temp){
+                a[j+1]=a[j];
+            }
+            else{
+                break;
             }
         }
-        a[n]=a[i];
-        a[i]=min;
+        a[j+1]=temp;
     }
 }
