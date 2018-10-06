@@ -1,1 +1,13 @@
-包括冒泡排序、直接选择排序、直接插入排序、二分插入排序、快速排序、堆排序、希尔排序、归并排序实现代码以及时间、空间复杂度。
+public static void BubbleSort(int[] a){
+    int i,j;
+    int n=a.length;
+    for(i=0;i<n;i++){
+        for(j=1;j<n-i;j++){
+            if(a[j]<a[j-1]){
+                int temp=a[j];
+                a[j]=a[j-1];
+                a[j-1]=temp;
+            }
+        }
+    }
+}
