@@ -1,0 +1,45 @@
+public static void MergeSort(int[] a){
+    for(int gap=1;gap<a.length;gap=gap*2){                   //gap:归并时每个子数组的长度
+        MergePass(a,gap,a.length);
+    }
+}
+public static void MergePass(int[] a,int gap,int length){
+    int i;
+    for(i=0;i+2*gap-1<length;i=i+2*gap){
+        Merge(a,i,i+gap-1,i+2*gap-1);
+    }
+    if(i+gap<length){
+        Merge(a,i,i+gap-1,length-1);
+    }
+}
+public static void Merge(int[] a,int low,int mid,int high){
+    int i=low;
+    int j=mid+1;                                             //i:第一个归并子数组的索引;  j:第二个归并子数组的索引
+    int k=0;                                                 //k:归并后的新数组的索引
+    int[] a2=new int[high-low+1];
+    while(i<=mid&&j<=high){
+        if(a[i]<=a[j]){
+            a2[k]=a[i];
+            i++;
+            k++;
+        }
+        else{
+            a2[k]=a[j];
+            j++;
+            k++;
+        }
+    }
+    while(i<=mid){
+        a2[k]=a[i];
+        i++;
+        k++;
+    }
+    while(j<=high){
+        a2[k]=a[j];
+        j++;
+        k++;
+    }
+    for(i=low,k=0;i<=high;i++,k++){
+        a[i]=a2[k];
+    }
+}
