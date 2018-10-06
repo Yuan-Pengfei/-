@@ -1,0 +1,15 @@
+public static void DirectSelectSort(int[] a){
+    int i,j;
+    for(i=0;i<a.length;i++){
+        int min=a[i];
+        int n=i;
+        for(j=i+1;j<a.length;j++){
+            if(a[j]<min){
+                min=a[j];
+                n=j;
+            }
+        }
+        a[n]=a[i];
+        a[i]=min;
+    }
+}
